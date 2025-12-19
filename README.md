@@ -4,6 +4,14 @@
 
 **This code example demonstrates how to convert multiple SAR ADC (Successive Approximation Register Analog-to-Digital Converter) channels simultaneously by triggering the TCPWM (Timer, Counter and PWM) counter.**
 
+## Requirements
+
+- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.1 or later (tested with v3.1)
+
+## Supported toolchains (make variable 'TOOLCHAIN')
+
+- GNU Arm&reg; Embedded Compiler v11.3.1 (`GCC_ARM`) – Default value of `TOOLCHAIN`
+
 ## Device
 
 The device used in this code example (CE) is:
@@ -14,7 +22,7 @@ The device used in this code example (CE) is:
 
 The board used for testing is:
 
-- TRAVEO™ T2G evaluation kit ([KIT_T2G-B-H_LITE](https://www.infineon.com/cms/en/product/evaluation-boards/kit_t2g-b-h_lite/))
+- TRAVEO™ T2G evaluation kit ([KIT_T2G-B-H_LITE](https://www.infineon.com/evaluation-board/KIT-T2G-B-H-LITE))
 
 ## Scope of work
 
@@ -57,13 +65,13 @@ The Trigger Multiplexer supports connecting various peripherals using trigger si
 - Supports a software trigger, which can trigger any signal in the block
 - Ability to configure a trigger multiplexer with trigger manipulation features in hardware such as inversion and edge/level detection
 
-More details can be found in [Technical Reference Manual (TRM)](https://www.infineon.com/dgdl/?fileId=5546d4627600a6bc017600bfae720007), [Registers TRM](https://www.infineon.com/dgdl/?fileId=5546d4627600a6bc017600be2aef0004) and [Data Sheet](https://www.infineon.com/dgdl/?fileId=5546d46275b79adb0175dc8387f93228).
+More details of TRAVEO™ T2G CYT4BF Series can be found in Technical Reference Manual (TRM), Registers TRM and Data Sheet. (See the [here](https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body/t2g-cyt4bf#documents))
 
 ## Hardware setup
 
 This CE has been developed for:
 
-- TRAVEO™ T2G Body High Lite evaluation kit ([KIT_T2G-B-H_LITE](https://www.infineon.com/cms/en/product/evaluation-boards/kit_t2g-b-h_lite/))<BR>
+- TRAVEO™ T2G Body High Lite evaluation kit ([KIT_T2G-B-H_LITE](https://www.infineon.com/evaluation-board/KIT-T2G-B-H-LITE))<BR>
 <img src="./images/KIT_T2G-B-H_LITE.gif"/><BR>
 
 - All the signals are input/output from the following pins respectively:
@@ -118,7 +126,7 @@ In this design, the three channels of the SAR ADC are enabled and configured to 
 
 ## Run and Test
 
-For this CE, a terminal emulator is required for displaying outputs and get inputs. Install a terminal emulator if you do not have one. Instructions in this document use [Tera Term](https://ttssh2.osdn.jp/index.html.en).
+For this CE, a terminal emulator is required for displaying outputs and get inputs. Install a terminal emulator if you do not have one. Instructions in this document use [Tera Term](https://teratermproject.github.io/index-en.html).
 
 After code compilation, perform the following steps to flashing the device:
 
@@ -130,7 +138,7 @@ After code compilation, perform the following steps to flashing the device:
 4. After programming, the CE starts automatically. Confirm that the messages are displayed on the UART terminal.
     - *Terminal output on program startup*<BR><img src="./images/serial-terminal-output.png" width="640" />
 5. The ADC channel conversion result is available in *g_adcResultBuffer* variable and can be verified in terminal with *ADC results: 0/CH0-xxx, 1/CH0-xxx, 2/CH0-xxx* values.
-6. You can debug the example to step through the code. In the IDE, use the **[Project Name] Debug (KitProg3_MiniProg4)** configuration in the **Quick Panel**. For details, see the "Program and debug" section in the [Eclipse IDE for ModusToolbox™ software user guide](https://www.infineon.com/dgdl/?fileId=8ac78c8c8386267f0183a8d7043b58ee).
+6. You can debug the example to step through the code. In the IDE, use the **[Project Name] Debug (KitProg3_MiniProg4)** configuration in the **Quick Panel**. For details, see the "Program and debug" section in the [Eclipse IDE for ModusToolbox™ software user guide](https://www.infineon.com/MTBEclipseIDEUserguide).
 
 **Note:** **(Only while debugging)** On the CM7 CPU, some code in *main()* may execute before the debugger halts at the beginning of *main()*. This means that some code executes twice: once before the debugger stops execution, and again after the debugger resets the program counter to the beginning of *main()*. See [KBA231071](https://community.infineon.com/t5/Knowledge-Base-Articles/PSoC-6-MCU-Code-in-main-executes-before-the-debugger-halts-at-the-first-line-of/ta-p/253856) to learn about this and for the workaround.
 
@@ -139,10 +147,10 @@ After code compilation, perform the following steps to flashing the device:
 
 Relevant Application notes are:
 
-- AN235305 - GETTING STARTED WITH TRAVEO™ T2G FAMILY MCUS IN MODUSTOOLBOX™
-- [AN219755](https://www.infineon.com/dgdl/?fileId=8ac78c8c7cdc391c017d0d3aaebf676a) - Using a SAR ADC in TRAVEO™ T2G automotive microcontrollers
-- [AN220224](https://www.infineon.com/dgdl/?fileId=8ac78c8c7cdc391c017d0d3a800a6752) - How to Use Timer, Counter, and PWM (TCPWM) in TRAVEO™ II Family
-- [AN228104](https://www.infineon.com/dgdl/?fileId=5546d4627883d7e00178ab0f5057708c) - How to Use Trigger Multiplexer in TRAVEO™ II family
+- [AN235305](https://www.infineon.com/assets/row/public/documents/10/42/infineon-an235305-getting-started-with-traveo-t2g-family-mcus-in-modustoolbox-applicationnotes-en.pdf?fileId=8ac78c8c8b6555fe018c1fddd8a72801) - GETTING STARTED WITH TRAVEO™ T2G FAMILY MCUS IN MODUSTOOLBOX™
+- [AN219755](https://www.infineon.com/gated/infineon-an219755---using-a-sar-adc-in-traveo-t2g-automotive-microcontrollers-applicationnotes-en_82d8de8b-fd22-4e61-adae-020a2f2b0624) - Using a SAR ADC in TRAVEO™ T2G automotive microcontrollers
+- [AN220224](https://www.infineon.com/ja/gated/infineon-an220224---how-to-use-timer-counter-and-pwm-tcpwm-in-traveo-t2g-family-applicationnotes-en_d6cf39c3-1404-4af3-84fd-d3cac057dbeb) - How to use Timer, Counter, and PWM (TCPWM) in TRAVEO™ T2G family
+- [AN228104](https://www.infineon.com/gated/infineon-an228104-how-to-use-trigger-multiplexer-in-traveo-t2g-family_91b562be-0d84-4b7f-a084-24ef4887a25b) - How to use trigger multiplexer in TRAVEO™ T2G Family
 
 ModusToolbox™ is available online:
 - <https://www.infineon.com/modustoolbox>
@@ -151,10 +159,10 @@ Associated TRAVEO™ T2G MCUs can be found on:
 - <https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/>
 
 More code examples can be found on the GIT repository:
-- [TRAVEO™ T2G Code examples](https://github.com/orgs/Infineon/repositories?q=mtb-t2g-&type=all&language=&sort=)
+- [TRAVEO™ T2G Code examples](https://github.com/orgs/Infineon/repositories?q=topic%3Akit-t2g-b-h-lite&type=all&language=&sort=) for [KIT_T2G-B-H_LITE](https://www.infineon.com/evaluation-board/KIT-T2G-B-H-LITE)
 
 For additional trainings, visit our webpage:  
-- [TRAVEO™ T2G trainings](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/#!trainings)
+- [TRAVEO™ T2G trainings](https://www.infineon.com/training/microcontroller-trainings)
 
 For questions and support, use the TRAVEO™ T2G Forum:  
 - <https://community.infineon.com/t5/TRAVEO-T2G/bd-p/TraveoII>  
